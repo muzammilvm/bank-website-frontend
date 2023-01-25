@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+
+
+<div class="container mt-2">
+    <h2>Register Form</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ab ducimus illum facilis tenetur quidem suscipit
+        deleniti rerum eveniet qui earum voluptatem tempora explicabo alias debitis molestiae, nostrum nobis sapiente.
+    </p>
+    <div class="row">
+        <div class="col-4 text-center">
+            <img height="400px"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1EgJQi7J7ublasekNfnjq7kO-MQziy5rkPg&usqp=CAU"
+                alt="">
+            <br>
+            <button routerLink="/" class="btn btn-warning">
+                Back
+            </button>
+        </div>
+
+        <div class="col-8">
+            <form (ngSubmit)="register()" [formGroup]="registerForm" action="" class="border p-5 mt-5 me-5">
+
+
+                <div class="mb-4">
+                    <input name="uname" formControlName="uname" class="form-control" type="text"
+                        placeholder="User name">
+                </div>
+
+
+                <!-- invalid uname -->
+                <div *ngIf="registerForm.get('uname')?.errors && registerForm.get('uname')?.touched"
+                    class="text-danger mb-2" style="font-size: 14px;">
+                    Invalid Username
+                </div>
+
+                <div class="mb-2">
+                    <input name="acno" formControlName="acno" class="form-control" type="text"
+                        placeholder="Account Number">
+                </div>
+
+
+                <!-- invalid acno -->
+                <div *ngIf="registerForm.get('acno')?.errors && registerForm.get('acno')?.touched"
+                    class="text-danger mb-2" style="font-size: 14px;">
+                    Invalid Account Number
+                </div>
+
+                <div class="mt-4">
+                    <input name="pass" formControlName="pass" class="form-control" type="password"
+                        placeholder="Password">
+                </div>
+
+                <!-- invalid pass -->
+                <div *ngIf="registerForm.get('pass')?.errors && registerForm.get('pass')?.touched"
+                    class="text-danger mb-2" style="font-size: 14px;">
+                    Invalid Password
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                    <span>
+                        Already A User? Click here to <a routerLink="/">Login</a>
+                    </span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

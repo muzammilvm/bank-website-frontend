@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/dashboard">
+            <img src="https://icons-for-free.com/download-icon-banking+building+finance+icon+icon-1320086625160174053_512.png"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            Online Banking App
+        </a>
+    </div>
+</nav>
+
+<div class="container-fluid mt-3 mb-5">
+    <h1 class="text-dark">Transactions</h1>
+    <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, pariatur facilis
+        eaque, nemo deserunt totam aut
+        nihil numquam asperiores sequi fuga quaerat provident facere repellendus quo sit! Cumque, corrupti quis!Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Ipsum, pariatur facilis eaque, nemo deserunt totam aut
+        nihil numquam asperiores sequi fuga quaerat provident facere repellendus quo sit! Cumque, corrupti quis!</p>
+
+   <div class="container border p-3 mt-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>Transaction History</h1>
+            </div>
+            <div class="col-lg-4">
+                <label for="search" class="me-2">Search By</label>
+                <input (keyup)="search($event)" id="search" type="text" placeholder="Transaction Type">
+            </div>
+            <div class="col-lg-4">
+                <input (click)="generatePDF()" value="Export" type="text" class="btn btn-success">
+            </div>
+            <table class="table border mt-3 text-center" style="background-color: rgb(239, 240, 230);" >
+                <thead>
+                    <tr>
+                        <th >No:</th>
+                        <th >Transaction Type</th>
+                        <th >From Account</th>
+                        <th>To Account</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let transaction of allTransactions | filter : searchKey : 'type' ; let i=index">
+                    <tr>
+                        <th>{{i+1}}</th>
+                        <th>{{transaction.type}}</th>
+                        <th>{{transaction.fromAcno}}</th>
+                        <th>{{transaction.toAcno}}</th>
+                        <th>{{transaction.amount}}</th>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
+   </div>
+</div>

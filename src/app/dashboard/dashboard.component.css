@@ -1,0 +1,7 @@
+.logout{
+    width: 200px;
+    height: 200px;
+}
+.signOut:hover{
+    cursor: pointer;
+}

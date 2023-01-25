@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+
+<div class="row">
+    <div class="col-7">
+        <img class="mt-5" height="500px" style="margin-left: 100px;"
+            src="https://static.vecteezy.com/system/resources/previews/010/974/063/original/3d-rendering-security-system-internet-banking-via-credit-card-on-mobile-security-system-in-smartphone-mobile-phone-with-passcode-screen-and-face-recognition-app-icon-png.png"
+            alt="">
+    </div>
+    <div class="col-5" style="margin-top:100px;">
+        <form (ngSubmit)="login()" [formGroup]="loginForm" action="" class="border p-5 mt-5 me-5">
+
+            <div class="mb-2">
+                <input name="acno" formControlName="acno" class="form-control" type="text" placeholder="Account Number">
+            </div>
+
+
+            <!-- invalid acno -->
+            <div *ngIf="loginForm.get('acno')?.errors && loginForm.get('acno')?.touched" class="text-danger mb-2"
+                style="font-size: 14px;">
+                Invalid Account Number
+            </div>
+
+            <div class="mt-4">
+                <input name="pass" formControlName="pass" class="form-control" type="password" placeholder="Password">
+            </div>
+            <div *ngIf="loginForm.get('pass')?.errors && loginForm.get('pass')?.touched" class="text-danger mb-2"
+                style="font-size: 14px;">
+                Invalid Password
+            </div>
+            <div class="text-danger mb-2"
+                style="font-size: 14px;">
+                {{errorMsg}}
+            </div>
+            <div class="mt-4" style="display: flex;align-items: center;">
+                <button type="submit" class="btn btn-primary d-flex align-items-center">
+                    Login
+                    <span *ngIf="successMsg" class="spinner-border text-light ms-2" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </span>
+                </button>
+                <span class="ms-2">
+                    New User? Click here to <a routerLink="/register">register</a>
+                </span>
+            </div>
+
+        </form>
+    </div>
+</div>
